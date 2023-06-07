@@ -32,13 +32,14 @@ print("------------------------------")
 
 menu = input("Elija el opción del menu: ")
 
-if any(i.isdigit() for i in menu):
+try:
+    menu = int(menu)
 
     if menu == 1:
 
         nombre = input("Ingrese su nombre: ")
         apellido = input("Ingrese su apellido: ")
-        rut = int(input("Ingrese su rut: "))
+        rut = input("Ingrese su rut: ")
         renta = int(input("Ingrese su renta"))
 
         rut = rut[:-1] + "-" + rut[-1]
@@ -59,12 +60,20 @@ if any(i.isdigit() for i in menu):
         else:
             print("Valor no valido")
 
-        
+        for i in clienteLife:
+            nombre, apellido, rut, renta = i
+            print("Nombre: ",nombre)
+            print("Apellido: ", apellido)
+            print("Rut: ", rut)
+            print("Renta: ", renta)
+
+
+except ValueError:
+    print("Debe ingresar un valor del menu")
 
 
 
-else:
-    print("Debe ingresar un digito del menu.")
+
 
 
 
