@@ -11,58 +11,79 @@
 # *Nombre
 # *Rut
 # *Renta
-#Si la renta esta entre 0 a 599.999 debe entrar a la categoria de Life, si la renta esta entre 600.000 a 1.699.999 sera Gold y si esta entre
-# $1.700.000 en adelante elite.
-#Por ultimo el programa debe poder hacer la consulta por el rut del cliente para saber sus datos  categorias
+
+#Si la renta esta entre 0 a 599.999 debe entrar a la categoria de Life, si la renta 
+#esta entre 600.000 a 1.699.999 sera Gold y si esta entre $1.700.000 en adelante elite.
+
+#Por ultimo el programa debe poder hacer la consulta 
+#por el rut del cliente para saber sus datos categorias
 
 clienteElite = []
 clienteGold = []
 clienteLife = []
 
-while True:
 
+print("------------------------------")
+print("Bienvenido al Menu de Cliente-")
+print("(1)-Ingresar sus datos--------")
+print("(2)-Consulta de datos por RUT-")
+print("(3)-Exit----------------------")
+print("------------------------------")
 
-    nombre = input("Ingrese su nombre: ")
-    if any(i.isdigit() for i in nombre):
-        print("Ingresó un digito, ingrese solo letras.")
-        continue
+menu = input("Elija el opción del menu: ")
 
-    rut = input("Ingrese su rut sin digito verificador: ")
+if any(i.isdigit() for i in menu):
 
-    renta = input("Ingrese su renta: ")
+    if menu == 1:
 
-    try:
-        rut = int(rut)
-        suma = 0
-        multiplo = 2
+        nombre = input("Ingrese su nombre: ")
+        apellido = input("Ingrese su apellido: ")
+        rut = int(input("Ingrese su rut: "))
+        renta = int(input("Ingrese su renta"))
 
-        for i in (str(rut)):
-            suma += int(i) * multiplo
-            multiplo += 1
-            if multiplo == 8:
-                multiplo = 2
-        resto = suma % 11
-        verificador = 11 - resto
-
-        conVerificador = str(rut) + str(verificador)
-
-        rutConGuion = conVerificador[:8] + "-" + conVerificador[8]
+        rut = rut[:-1] + "-" + rut[-1]
+        rut = str(rut)
 
         nombre = nombre.upper()
-        conVerificador = rutConGuion.upper()
+        apellido = apellido.upper()
+        rut = rut.upper()
+
+        addLista = [nombre, apellido, rut, renta]
+
+        if renta >= 0 and renta <= 599999:
+            clienteLife.append(addLista)
+        elif renta >= 600000 and renta <= 1699999:
+            clienteGold.append(addLista)
+        elif renta >= 1700000:
+            clienteElite.append(addLista)
+        else:
+            print("Valor no valido")
 
         
 
 
-        
+
+else:
+    print("Debe ingresar un digito del menu.")
 
 
 
 
 
 
-    except ValueError:
-        continue
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
     
 
