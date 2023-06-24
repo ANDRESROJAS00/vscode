@@ -113,7 +113,7 @@ def menu():
 
         while True:
 
-            print('---Menu de la automotora---')
+            print('\n---Menu de la automotora---')
             print('1. Guardar informacion')
             print('2. Buscar informacion')
             print('3. Imprimir Certificado')
@@ -152,3 +152,5 @@ def menu():
                 print('Opcion invalida.')
 
 menu()
+print('HOLA')
+
