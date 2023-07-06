@@ -1,2 +1,0 @@
-print('jaskdasd')
-print('sdfsdfsdfsdf')
